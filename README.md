@@ -1,3 +1,5 @@
+[![.NET](https://github.com/aimenux/BinaryFormatterDemo/actions/workflows/ci.yml/badge.svg)](https://github.com/aimenux/BinaryFormatterDemo/actions/workflows/ci.yml)
+
 # BinaryFormatterDemo
 ```
 Implementing serialization/deserialization with binary formatter
@@ -22,4 +24,4 @@ Implementing serialization/deserialization with binary formatter
 > ![BinaryFormatterDemoScreen](Screenshots/BinaryFormatterDemoScreen.png)
 >
 
-**`Tools`** : vs19, net 5.0, json.net, system.text.json, bullseye
+**`Tools`** : vs19, net 3.1, binary formatter, bullseye
