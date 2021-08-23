@@ -23,30 +23,31 @@ namespace App
             using (var host = CreateHostBuilder(args).Build())
             {
                 var targets = new Targets();
-                var binarySerializer = host.Services.GetService<IBinarySerializer>();
-                var thirdPartyBinarySerializer = host.Services.GetService<ThirdPartyBinarySerializer>();
+                var basicSerializer = host.Services.GetRequiredService<IBinarySerializer>();
+                var customSerializer = host.Services.GetRequiredService<IBinarySerializer>();
+                var thirdPartySerializer = host.Services.GetRequiredService<ThirdPartyBinarySerializer>();
                 targets.Add(TargetTypes.BasicSerialization, () =>
                 {
                     var employeeBefore = Factory.CreateEmployeeWithBasicSerialization();
-                    binarySerializer.Serialize(employeeBefore);
+                    basicSerializer.Serialize(employeeBefore);
                     employeeBefore.WriteLine("Basic serialization done");
-                    var employeeAfter = binarySerializer.Deserialize<BasicEmployee>();
+                    var employeeAfter = basicSerializer.Deserialize<BasicEmployee>();
                     employeeAfter.WriteLine("Basic deserialization done");
                 });
                 targets.Add(TargetTypes.CustomSerialization, () =>
                 {
                     var employeeBefore = Factory.CreateEmployeeWithCustomSerialization();
-                    binarySerializer.Serialize(employeeBefore);
+                    customSerializer.Serialize(employeeBefore);
                     employeeBefore.WriteLine("Custom serialization done");
-                    var employeeAfter = binarySerializer.Deserialize<CustomEmployee>();
+                    var employeeAfter = customSerializer.Deserialize<CustomEmployee>();
                     employeeAfter.WriteLine("Custom deserialization done");
                 });
                 targets.Add(TargetTypes.ThirdPartySerialization, () =>
                 {
                     var employeeBefore = Factory.CreateEmployeeWithThirdPartySerialization();
-                    thirdPartyBinarySerializer.Serialize(employeeBefore);
+                    thirdPartySerializer.Serialize(employeeBefore);
                     employeeBefore.WriteLine("ThirdParty serialization done");
-                    var employeeAfter = thirdPartyBinarySerializer.Deserialize<ThirdPartyEmployee>();
+                    var employeeAfter = thirdPartySerializer.Deserialize<ThirdPartyEmployee>();
                     employeeAfter.WriteLine("ThirdParty deserialization done");
                 });
                 targets.Add(TargetTypes.Default, dependsOn: new List<string>

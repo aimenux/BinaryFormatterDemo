@@ -12,10 +12,12 @@ Implementing serialization/deserialization with binary formatter
 >
 > :two: **CustomSerialization**
 >> Models are decorated with [Serializable attribute](https://docs.microsoft.com/en-us/dotnet/api/system.serializableattribute)
+>>
 >> Models are implementing [ISerializable interface](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.iserializable)
 >
 > :three: **ThirdPartySerialization**
 >> Models are considered as third party classes (can't be modified)
+>>
 >> Models are serialized using [ISerializationSurrogate interface](https://docs.microsoft.com/en-us/dotnet/api/system.runtime.serialization.iserializationsurrogate)
 >
 >
