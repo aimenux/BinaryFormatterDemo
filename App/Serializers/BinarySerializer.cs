@@ -27,7 +27,7 @@ namespace App.Serializers
         {
             try
             {
-                using var stream = new FileStream(FileName, FileMode.OpenOrCreate);
+                using var stream = new FileStream(FileName, FileMode.Create);
                 Formatter.Serialize(stream, obj);
             }
             catch (Exception ex)
