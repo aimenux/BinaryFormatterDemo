@@ -23,7 +23,7 @@ Implementing serialization/deserialization with binary formatter
 >
 > To run code in debug or release mode, type the following commands in your favorite terminal : 
 > - `.\App.exe`
-> - `.\App.exe default`
+> - `.\App.exe Default`
 > - `.\App.exe Basic`
 > - `.\App.exe Custom`
 > - `.\App.exe ThirdParty`
